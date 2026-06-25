@@ -520,10 +520,83 @@ main { position: relative; z-index: 1; }
 @media (max-width: 768px) {
   .color-picker {
     top: auto;
-    bottom: 5rem;
+    bottom: 2.5rem;
     right: 50%;
     transform: translateX(50%);
     flex-direction: row;
+  }
+
+  .nav-links {
+    display: none; /* Ocultar links en mobile para limpiar el header */
+  }
+
+  .hero-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto 1fr auto;
+    gap: 0;
+    min-height: 85vh;
+    padding-top: 10vh;
+  }
+
+  .hero-intro {
+    align-self: start;
+    text-align: center;
+    z-index: 10;
+  }
+  
+  .hero-intro h1 {
+    margin: 12px auto 0;
+    font-size: clamp(2.5rem, 12vw, 4rem);
+  }
+
+  .hero-meta {
+    align-self: end;
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 5vh;
+    z-index: 10;
+  }
+
+  .stat {
+    border-bottom: none;
+    text-align: center;
+    padding-bottom: 0;
+  }
+
+  .stat strong {
+    font-size: clamp(1.5rem, 6vw, 2rem);
+  }
+
+  .split-copy {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  .statement-lines {
+    bottom: 5vh;
+    font-size: clamp(1rem, 4vw, 1.2rem);
+    width: 90%;
+  }
+
+  .drop-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .profile-card {
+    padding: 32px 20px;
+    text-align: center;
+  }
+
+  .social-row {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+    padding-bottom: 40px;
   }
 }
 
