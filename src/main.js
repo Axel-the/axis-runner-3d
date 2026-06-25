@@ -14,24 +14,23 @@ gsap.defaults({ ease: 'power3.out' });
 ScrollTrigger.config({ ignoreMobileResize: true });
 
 const stats = [
-  ['042', 'prototipos probados'],
-  ['18K', 'pasos ficticios'],
-  ['007', 'pruebas de color'],
-  ['360', 'fotogramas de movimiento'],
+  ['120g', 'PESO ULTRALIGERO'],
+  ['3D', 'TEJIDO TRANSPIRABLE'],
+  ['EVA', 'SUELA REACTIVA'],
 ];
 
 const chapters = [
   {
     code: '01',
-    kicker: 'Hecha para moverse',
-    title: 'Una silueta que flota, gira y responde al scroll.',
-    body: 'Creamos una narrativa visual alrededor de una zapatilla ficticia: cada tramo del scroll cambia el ritmo, la cámara y la energía de la escena 3D.',
+    kicker: 'Amortiguación que desafía la gravedad.',
+    title: 'El innovador sistema de entresuela absorbe el impacto de cada pisada y lo transforma en un impulso hacia adelante, reduciendo la fatiga incluso en las distancias más largas.',
+    body: '',
   },
   {
     code: '02',
-    kicker: 'Historia material',
-    title: 'Texturas técnicas, luz dura y una estética más editorial.',
-    body: 'La landing abandona el tema claro y azul para usar contraste alto, tipografía gigante y capas de información como una página experimental tipo portfolio.',
+    kicker: 'Tejido adaptativo, ajuste perfecto y ventilación.',
+    title: 'El upper está construido con una malla técnica 3D de una sola pieza que envuelve el pie como un calcetín.',
+    body: 'Ofreciendo soporte dinámico exactamente donde lo necesitas sin sacrificar la transpirabilidad.',
   },
   {
     code: '03',
@@ -54,34 +53,38 @@ app.innerHTML = `
     </div>
   </nav>
 
+  <div class="stage-wrap" aria-label="Zapatilla 3D interactiva">
+    <canvas id="shoeCanvas"></canvas>
+  </div>
+
+  <div class="stage-hud hud-top">
+    <span>MODELO_07</span>
+    <strong>ARRASTRA / SCROLL</strong>
+  </div>
+  <div class="stage-hud hud-bottom">
+    <span id="chapterLabel">CAPITULO_00</span>
+    <strong>THREE.JS</strong>
+  </div>
+  
+  <div class="color-picker">
+    <button class="color-btn active" data-color="midnight" style="background-color: #0d84c6;" aria-label="Color Azul"></button>
+    <button class="color-btn" data-color="beach" style="background-color: #e3d5c8;" aria-label="Color Beige"></button>
+    <button class="color-btn" data-color="street" style="background-color: #1a1a1a;" aria-label="Color Negro"></button>
+  </div>
+
   <main id="top">
     <section class="hero-section panel-section" id="hero">
       <div class="giant-em" aria-hidden="true">AR</div>
       <div class="hero-grid">
         <div class="hero-intro">
-          <p class="line-label">Esto es Axis Runner.</p>
-          <h1>
-            un drop 3D de zapatillas,<br />
-            un experimento en movimiento,<br />
-            y una historia con scroll.
-          </h1>
+          <p class="line-label">RENDIMIENTO SUPERIOR</p>
+          <h1>Axis Runner, ingeniería de precisión, aerodinámica y confort absoluto.</h1>
           <p class="rotating-line">
-            Creamos
-            <span class="word-rotator" aria-live="polite">experiencias</span>
+            Diseñadas para <span class="word-rotator" aria-live="polite">correr más rápido</span>
           </p>
         </div>
 
-        <div class="stage-wrap" aria-label="Zapatilla 3D interactiva">
-          <canvas id="shoeCanvas"></canvas>
-          <div class="stage-hud hud-top">
-            <span>MODELO_07</span>
-            <strong>ARRASTRA / SCROLL</strong>
-          </div>
-          <div class="stage-hud hud-bottom">
-            <span id="chapterLabel">INICIO_00</span>
-            <strong>THREE.JS</strong>
-          </div>
-        </div>
+        <div class="empty-col"></div>
 
         <div class="hero-meta">
           ${stats.map(([value, label]) => `<div class="stat"><strong data-count="${value}">${value}</strong><span>${label}</span></div>`).join('')}
@@ -89,11 +92,13 @@ app.innerHTML = `
       </div>
     </section>
 
-    <section class="statement-section panel-section" id="experience">
-      <p class="split-copy">Eso es mucho</p>
-      <div class="statement-lines">
-        <span>Pero sin importar cuál sea el producto,</span>
-        <strong>el scroll debe hacerlo sentir vivo.</strong>
+    <section class="statement-section chapter" id="statement">
+      <div class="statement-content">
+        <p class="split-copy">Pura energía.</p>
+        <div class="statement-lines">
+          <p>No es solo una zapatilla deportiva,</p>
+          <p><strong>es una extensión de tu propio movimiento.</strong></p>
+        </div>
       </div>
     </section>
 
@@ -110,8 +115,8 @@ app.innerHTML = `
           `).join('')}
         </div>
         <div class="motion-card">
-          <span class="line-label">INTERACCIÓN CON SCROLL</span>
-          <p>El modelo se mantiene como protagonista, pero ahora vive dentro de una composición más parecida a Elvis Mao: minimal, tipográfica, con grandes pausas visuales y transiciones por scroll.</p>
+          <span class="line-label">MATERIALES PREMIUM</span>
+          <p>El upper está construido con una malla técnica 3D de una sola pieza que envuelve el pie como un calcetín, ofreciendo soporte dinámico exactamente donde lo necesitas sin sacrificar la transpirabilidad.</p>
         </div>
       </div>
     </section>
@@ -138,19 +143,28 @@ app.innerHTML = `
           <a href="#top">PROYECTOS_</a>
           <a href="#drop">DROP_</a>
         </div>
+        <span class="line-label">TECNOLOGÍAS DEL SITIO</span>
         <div class="social-row">
-          <a href="mailto:hello@example.com">Correo</a>
-          <a href="#top">Lookbook</a>
-          <a href="#motion">Movimiento</a>
-          <a href="#experience">Archivo</a>
+          <a href="https://threejs.org/" target="_blank">Three.js</a>
+          <a href="https://gsap.com/" target="_blank">GSAP</a>
+          <a href="https://lenis.studiofreight.com/" target="_blank">Lenis</a>
+          <a href="https://vitejs.dev/" target="_blank">Vite</a>
         </div>
       </div>
-      <footer>© 2026 by Axis Movimiento Lab</footer>
+      <footer class="site-footer">
+        <span>Tecnologías: Vanilla JS, Three.js, GSAP & Lenis. | © 2026 Axis Runner.</span>
+        <a href="https://github.com/tu-usuario/axis-runner-3d" target="_blank" class="github-link" aria-label="Ver código en GitHub">
+          <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor">
+            <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.285 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+          </svg>
+          Código Fuente
+        </a>
+      </footer>
     </section>
   </main>
 `;
 
-const words = ['experiencias', 'animaciones', 'momentos 3D', 'futuros drops'];
+const words = ['correr más rápido', 'romper tus límites', 'conquistar la ciudad', 'vencer la gravedad'];
 let wordIndex = 0;
 const wordTimer = window.setInterval(() => {
   const target = document.querySelector('.word-rotator');
@@ -174,7 +188,7 @@ function mountScene() {
   scene.fog = new THREE.Fog(0x070707, 7, 16);
 
   const camera = new THREE.PerspectiveCamera(27, 1, 0.1, 100);
-  camera.position.set(0, 0.78, 5.05);
+  camera.position.set(0, 0.4, 4.2);
 
   const renderer = new THREE.WebGLRenderer({ canvas, antialias: true, alpha: true });
   renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
@@ -183,6 +197,7 @@ function mountScene() {
   renderer.toneMappingExposure = 1.25;
 
   const group = new THREE.Group();
+  group.position.set(0, 0, 0); // Start shoe in the exact center
   scene.add(group);
 
   scene.add(new THREE.AmbientLight(0x2b2b2b, 2.4));
@@ -203,6 +218,17 @@ function mountScene() {
   const mouse = new THREE.Vector2(0, 0);
   const clock = new THREE.Clock();
 
+  const textureLoader = new THREE.TextureLoader();
+  const textures = {
+    midnight: textureLoader.load('/models/shoe/diffuseMidnight.jpg'),
+    beach: textureLoader.load('/models/shoe/diffuseBeach.jpg'),
+    street: textureLoader.load('/models/shoe/diffuseStreet.jpg'),
+  };
+  Object.values(textures).forEach(t => {
+    t.colorSpace = THREE.SRGBColorSpace;
+    t.flipY = false;
+  });
+
   const loader = new GLTFLoader();
   loader.load('/models/shoe/MaterialsVariantsShoe.gltf', (gltf) => {
     shoe = gltf.scene;
@@ -222,6 +248,22 @@ function mountScene() {
     gsap.fromTo(group.scale, { x: 0.55, y: 0.55, z: 0.55 }, { x: 1, y: 1, z: 1, duration: 1.4, ease: 'expo.out' });
   }, undefined, (err) => console.error('GLTF load error:', err));
 
+  document.querySelectorAll('.color-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.color-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      const color = e.target.dataset.color;
+      if (shoe) {
+        shoe.traverse((obj) => {
+          if (obj.isMesh && obj.material && obj.material.map) {
+            obj.material.map = textures[color];
+            obj.material.needsUpdate = true;
+          }
+        });
+      }
+    });
+  });
+
   const resize = () => {
     const rect = canvas.parentElement.getBoundingClientRect();
     renderer.setSize(rect.width, rect.height, false);
@@ -238,20 +280,33 @@ function mountScene() {
   window.addEventListener('pointermove', onMove);
   resize();
 
-  gsap.timeline({
+  // Rotación continua y fluida vinculada al scroll de toda la página
+  // Al ser una sola animación global, evitamos los saltos y conflictos (bugs)
+  // que ocurrían al tener múltiples triggers sobre las mismas propiedades.
+  gsap.to(group.rotation, {
+    y: Math.PI * 3, // Da 1.5 vueltas completas a lo largo de toda la página
+    ease: 'none',
     scrollTrigger: {
       trigger: 'main',
       start: 'top top',
       end: 'bottom bottom',
-      scrub: 0.85,
-    },
-  })
-    .to(group.rotation, { y: Math.PI * 0.8, x: 0.16, z: -0.05 }, 0)
-    .to(group.position, { x: -0.8, y: 0.2, z: 0 }, 0.2)
-    .to(group.rotation, { y: Math.PI * 1.6, x: -0.05, z: 0.08 }, 0.45)
-    .to(group.position, { x: 0.75, y: -0.12, z: 0 }, 0.55)
-    .to(group.scale, { x: 0.82, y: 0.82, z: 0.82 }, 0.7)
-    .to(group.rotation, { y: Math.PI * 2.18, x: 0.2, z: 0 }, 0.85);
+      scrub: 1.5 // Suaviza el movimiento al hacer scroll
+    }
+  });
+
+  // Efecto sutil de respiración/escala en el punto medio de la página
+  gsap.to(group.scale, {
+    x: 0.9, y: 0.9, z: 0.9,
+    ease: 'power1.inOut',
+    yoyo: true,
+    repeat: 1,
+    scrollTrigger: {
+      trigger: 'main',
+      start: 'top top',
+      end: 'bottom bottom',
+      scrub: 2
+    }
+  });
 
   const tick = () => {
     const elapsed = clock.getElapsedTime();
